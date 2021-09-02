@@ -9,25 +9,25 @@ This web app identifies if the mushroom is edible or poisonous depending upon th
 
 Clone the project
 
-```bash
+```
   git clone https://github.com/Joyel1441/Mushroom-Classification
 ```
 
 Go to the project directory
 
-```bash
+```
   cd Mushroom-Classification
 ```
 
 Install dependencies
 
-```bash
+```
  pip install -r requirements.txt
 ```
 
 Start the server
 
-```bash
+```
   python app.py
 ```
 
