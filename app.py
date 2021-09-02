@@ -44,8 +44,8 @@ def checkMushroom():
                       nn.Linear(10, 1),
                       nn.Sigmoid())
 
-        model.load_state_dict(torch.load("./model.pth"))
-        encoder = load(open('./encoder.pkl', 'rb'))
+        model.load_state_dict(torch.load("./model.pth")) #load pytorch model
+        encoder = load(open('./encoder.pkl', 'rb')) #load oridinal encoder
         x = encoder.transform([x])
         mushroom_type = None
         with torch.no_grad():
