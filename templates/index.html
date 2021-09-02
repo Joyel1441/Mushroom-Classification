@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Mushrooms classifier</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            padding: 0%;
+            margin: 0%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("../static/mushroom_background.jpg");
+        }
+
+        .container {
+            padding-top: 4em;
+            padding-bottom: 1em;
+            width: 70%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #A12568;
+        }
+
+        .feature {
+            display: block;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        #submit_button {
+            display: block;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem !important;
+                margin-top: 1.6em !important;
+            }
+            .container {
+                width: 75%;
+                padding-top: 0%;
+                padding-bottom: 0%;
+                font-size: 0.8rem;
+            }
+            select {
+                font-size: 0.8rem;
+            }
+
+            #submit_button input {
+                padding: 0.4em 0.4em 0.4em 0.4em !important;
+                margin-bottom: 0.8em;
+                font-size: 0.8rem !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1 class="title-text" style="margin-bottom: 0.4em; font-size: 3rem; margin-top: 1.5em;">Mushroom Details</h1>
+        </center>
+        <form method="post" action={{ url_for("checkMushroom") }}>
+            <div class="feature">
+                <span>Cap shape:</span>
+                <span><select name="cap-shape">
+                        <option value="b">Bell</option>
+                        <option value="c">Conical</option>
+                        <option value="x">Convex</option>
+                        <option value="f">Flat</option>
+                        <option value="k">Knobbed</option>
+                        <option value="s">Sunken</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Cap surface:</span>
+                <span><select name="cap-surface">
+                        <option value="f">Fibrous</option>
+                        <option value="g">Grooves</option>
+                        <option value="y">Scaly</option>
+                        <option value="s">Smooth</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Cap color:</span>
+                <span><select name="cap-color">
+                        <option value="n">Brown</option>
+                        <option value="b">Buff</option>
+                        <option value="c">Cinnamon</option>
+                        <option value="g">Gray</option>
+                        <option value="r">Green</option>
+                        <option value="p">Pink</option>
+                        <option value="u">Purple</option>
+                        <option value="e">Red</option>
+                        <option value="w">White</option>
+                        <option value="y">Yellow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Bruises:</span>
+                <span><select name="bruises">
+                        <option value="t">Yes</option>
+                        <option value="f">No</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Odor:</span>
+                <span><select name="odor">
+                        <option value="a">Almond</option>
+                        <option value="l">Anise</option>
+                        <option value="c">Creosote</option>
+                        <option value="y">Fishy</option>
+                        <option value="f">Foul</option>
+                        <option value="m">Musty</option>
+                        <option value="n">None</option>
+                        <option value="p">Pungent</option>
+                        <option value="s">Spicy</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Gill attachment:</span>
+                <span><select name="gill-attachment">
+                        <option value="a">Attached</option>
+                        <option value="f">Free</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Gill spacing:</span>
+                <span><select name="gill-spacing">
+                        <option value="c">Close</option>
+                        <option value="w">Crowed</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Gill size:</span>
+                <span><select name="gill-size">
+                        <option value="b">Broad</option>
+                        <option value="n">Narrow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Gill color:</span>
+                <span><select name="gill-color">
+                        <option value="k">Black</option>
+                        <option value="n">Brown</option>
+                        <option value="b">Buff</option>
+                        <option value="h">Chocolate</option>
+                        <option value="g">Gray</option>
+                        <option value="r">Green</option>
+                        <option value="o">Orange</option>
+                        <option value="p">Pink</option>
+                        <option value="u">Purple</option>
+                        <option value="e">Red</option>
+                        <option value="w">White</option>
+                        <option value="y">Yellow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Stalk shape:</span>
+                <span><select name="stalk-shape">
+                        <option value="e">Enlarging</option>
+                        <option value="t">Tapering</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Stalk surface above ring:</span>
+                <span><select name="stalk-surface-above-ring">
+                        <option value="f">Fibrous</option>
+                        <option value="y">Scaly</option>
+                        <option value="k">Silky</option>
+                        <option value="s">Smooth</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Stalk surface below ring:</span>
+                <span><select name="stalk-surface-below-ring">
+                        <option value="f">Fibrous</option>
+                        <option value="y">Scaly</option>
+                        <option value="k">Silky</option>
+                        <option value="s">Smooth</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Stalk color above ring:</span>
+                <span><select name="stalk-color-above-ring">
+                        <option value="n">Brown</option>
+                        <option value="b">Buff</option>
+                        <option value="c">Cinnamon</option>
+                        <option value="g">Gray</option>
+                        <option value="o">Orange</option>
+                        <option value="p">Pink</option>
+                        <option value="e">Red</option>
+                        <option value="w">White</option>
+                        <option value="y">Yellow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Stalk color below ring:</span>
+                <span><select name="stalk-color-below-ring">
+                        <option value="n">Brown</option>
+                        <option value="b">Buff</option>
+                        <option value="c">Cinnamon</option>
+                        <option value="g">Gray</option>
+                        <option value="o">Orange</option>
+                        <option value="p">Pink</option>
+                        <option value="e">Red</option>
+                        <option value="w">White</option>
+                        <option value="y">Yellow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Veil color:</span>
+                <span><select name="veil-color">
+                        <option value="n">Brown</option>
+                        <option value="o">Orange</option>
+                        <option value="w">White</option>
+                        <option value="y">Yellow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Ring number:</span>
+                <span><select name="ring-number">
+                        <option value="n">None</option>
+                        <option value="o">One</option>
+                        <option value="t">Two</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Ring type:</span>
+                <span><select name="ring-type">
+                        <option value="e">Evanescent</option>
+                        <option value="f">Flaring</option>
+                        <option value="l">Large</option>
+                        <option value="n">None</option>
+                        <option value="p">Pendant</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Spore print color:</span>
+                <span><select name="spore-print-color">
+                        <option value="k">Black</option>
+                        <option value="n">Brown</option>
+                        <option value="b">Buff</option>
+                        <option value="h">Chocolate</option>
+                        <option value="r">Green</option>
+                        <option value="o">Orange</option>
+                        <option value="u">Purple</option>
+                        <option value="w">White</option>
+                        <option value="y">Yellow</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Population:</span>
+                <span><select name="population">
+                        <option value="a">Abundant</option>
+                        <option value="c">Clustered</option>
+                        <option value="n">Numerous</option>
+                        <option value="s">Scattered</option>
+                        <option value="v">Several</option>
+                        <option value="y">Solitary</option>
+                    </select></span>
+            </div>
+            <div class="feature">
+                <span>Habitat:</span>
+                <span><select name="habitat">
+                        <option value="g">Grasses</option>
+                        <option value="l">Leaves</option>
+                        <option value="m">Meadows</option>
+                        <option value="p">Paths</option>
+                        <option value="u">Urban</option>
+                        <option value="w">Waste</option>
+                        <option value="d">Woods</option>
+                    </select></span>
+            </div>
+            <span id="submit_button"><input type="submit" value="Check if the mushroom is edible or not" style="padding: 1em 3em 1em 3em; font-size: 1rem; background-color: white; border-style: none;"></span>
+        </form>
+    </div>
+</body>
+
+</html>

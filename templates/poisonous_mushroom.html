@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Poisonous Mushroom</title>
+    <style>
+        body {
+            background-image: url("../static/poisonous_mushroom.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+           margin-top: 10em;
+           text-align: center;
+           width: 20%;
+           height: 40%;
+           color: white;
+           font-size: 1.5rem;
+           font-family: 'Ubuntu', sans-serif;
+           background-color: red;
+           padding: 5em;
+        }
+
+        @media only screen and (max-width: 600px) {
+           .container {
+               width: 50%;  
+               font-size: 1rem;
+           }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action={{ url_for("goToIndex") }}>
+        <p>Mushroom looks poisonous</p>
+        <input type="submit" value="Back" style="background-color: white; border-style: none; padding: 0.5em 1em 0.5em 1em;">
+        </form>
+    </div>
+</body>
+</html>
