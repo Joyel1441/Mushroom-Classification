@@ -1,7 +1,7 @@
 
 # Mushroom Classifier
 
-this web app identifies if the mushroom is edible or poisonous depending upon the details entered
+This web app identifies if the mushroom is edible or poisonous depending upon the details entered
 
 
 
