@@ -6,8 +6,6 @@ from sklearn.preprocessing import OrdinalEncoder
 
 app = Flask(__name__)
 
-encodings = {"shape-bell":0,"shape-conical":1,"shape-convex":5,"shape-flat":2,"shape-knobbed":3,"shape-sunken":4,}
-
 @app.route("/")
 def index():
     return render_template("index.html")
