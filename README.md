@@ -7,7 +7,7 @@ This web app identifies if the mushroom is edible or poisonous depending upon th
 
 ## Run Locally
 
-Clone the project
+Clone the project (make sure python and git is installed)
 
 ```
   git clone https://github.com/Joyel1441/Mushroom-Classification
