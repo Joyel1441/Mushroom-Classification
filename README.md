@@ -5,6 +5,10 @@ This web app identifies if the mushroom is edible or poisonous depending upon th
 
 
 
+[ML CODE FILE](https://github.com/Joyel1441/Mushroom-Classification/blob/main/ML_CODE_FILE.ipynb)
+
+
+
 ## Run Locally
 
 Clone the project (make sure python and git is installed)
